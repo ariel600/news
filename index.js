@@ -77,14 +77,14 @@ function createNav() {
         main.innerHTML = "";
         form.innerHTML = "";
         addNews();
-    });    
+    });
     news.textContent = "Add News";
     news.classList.add("navLinks");
     nav.append(home, news);
-};    
+};
 
 function getNews(index) {
-    main.inert = "";
+    main.innerHTML = "";
 
     const card = document.createElement("div");
     card.classList.add("get-card");
@@ -101,11 +101,11 @@ function getNews(index) {
 
     const description = document.createElement("p");
     description.classList.add("get-description");
-    description.textContent = news[index].author;
+    description.textContent = news[index].description;
 
     const content = document.createElement("p");
     content.classList.add("get-content");
-    content.textContent = news[index].author;
+    content.textContent = news[index].content;
 
     const author = document.createElement("p");
     author.classList.add("get-author");
@@ -129,10 +129,12 @@ async function createNewsCard(index) {
     author.classList.add("text");
     author.textContent = news[index].author;
     card.append(title, img, author);
-    news.addEventListener('click', function () {
+    card.addEventListener('click', function (event) {
+        event.preventDefault();
+        console
         getNews(index);
-    })    
-};    
+    })
+};
 
 function createHome() {
     for (let i = 0; i < news.length; i++) {

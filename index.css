@@ -91,9 +91,52 @@ body {
     width: 50%;
 }
 
-.textarea {}
-
 .inputs:focus,
 #send:hover {
     box-shadow: 5.5px 7px 0 black;
+}
+
+.get-card {
+    grid-column: 1/4;
+    margin: 1%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 65%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.get-title {
+    font-size: 30px;
+    font: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.get-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.get-description {
+    margin-top: 5px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.get-content {
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.get-author {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-self: flex-end;
 }
