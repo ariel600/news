@@ -55,19 +55,29 @@ function addNews() {
     btn.textContent = "Send"
     btn.id = "send"
     btn.addEventListener('click', function (event) {
-        news.unshift(data)
         event.preventDefault()
+        news.unshift(data)
+        form.innerHTML = ""
+        createHome()
     });
     form.append(author, title, urlToImage, description, content, btn)
-}
 
+}
 function createNav() {
     const home = document.createElement("button")
-    home.onclick = "createHome()"
+    home.addEventListener('click', function () {
+        main.innerHTML = ""
+        form.innerHTML = ""
+        createHome();
+    });
     home.textContent = "Home"
     home.classList.add("navLinks")
     const news = document.createElement("button")
-    news.onclick = "addNews()"
+    news.addEventListener('click', function () {
+        main.innerHTML = ""
+        form.innerHTML = ""
+        addNews();
+    });
     news.textContent = "Add News"
     news.classList.add("navLinks")
     nav.append(home, news)
@@ -92,7 +102,8 @@ async function createNewsCard(index) {
 
 function createHome() {
     for (let i = 0; i < news.length; i++) {
-        createNewsCard(i)
+        if (news[i].title && news[i].urlToImage)
+            createNewsCard(i)
     }
 }
 
