@@ -11,29 +11,6 @@ nav.id = "nav";
 main.id = "main";
 root.append(nav, form, main);
 
-function getNews(index) {
-    main.inert = "";
-
-    const card = document.createElement("div");
-    card.classList.add("get-card");
-    card.href = news[index].url;
-    main.appendChild(card);
-
-    const title = document.createElement("h1");
-    title.classList.add("title");
-    title.textContent = news[index].title;
-
-    const img = document.createElement("img");
-    img.classList.add("img");
-    img.src = news[index].urlToImage;
-
-    const author = document.createElement("p");
-    author.classList.add("text");
-    author.textContent = news[index].author;
-
-    card.append(title, img, author);
-};
-
 function addNews() {
     main.innerHTML = "";
     const data = {};
@@ -124,6 +101,37 @@ async function createNewsCard(index) {
     news.addEventListener('click', function () {
         getNews(index);
     })
+};
+
+function getNews(index) {
+    main.inert = "";
+
+    const card = document.createElement("div");
+    card.classList.add("get-card");
+    card.href = news[index].url;
+    main.appendChild(card);
+
+    const title = document.createElement("h1");
+    title.classList.add("get-title");
+    title.textContent = news[index].title;
+
+    const urlToImage = document.createElement("img");
+    urlToImage.classList.add("get-img");
+    urlToImage.src = news[index].urlToImage;
+
+    const description = document.createElement("p");
+    description.classList.add("get-description");
+    description.textContent = news[index].author;
+
+    const content = document.createElement("p");
+    content.classList.add("get-content");
+    content.textContent = news[index].author;
+
+    const author = document.createElement("p");
+    author.classList.add("get-author");
+    author.textContent = news[index].author;
+
+    card.append(title, urlToImage, description, content, author);
 };
 
 function createHome() {
