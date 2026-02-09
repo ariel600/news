@@ -77,31 +77,11 @@ function createNav() {
         main.innerHTML = "";
         form.innerHTML = "";
         addNews();
-    });
+    });    
     news.textContent = "Add News";
     news.classList.add("navLinks");
     nav.append(home, news);
-};
-
-async function createNewsCard(index) {
-    const card = document.createElement("a");
-    card.classList.add("card");
-    card.href = "getNews(index)";
-    main.appendChild(card);
-    const title = document.createElement("h1");
-    title.classList.add("title");
-    title.textContent = news[index].title;
-    const img = document.createElement("img");
-    img.classList.add("img");
-    img.src = news[index].urlToImage;
-    const author = document.createElement("p");
-    author.classList.add("text");
-    author.textContent = news[index].author;
-    card.append(title, img, author);
-    news.addEventListener('click', function () {
-        getNews(index);
-    })
-};
+};    
 
 function getNews(index) {
     main.inert = "";
@@ -133,6 +113,26 @@ function getNews(index) {
 
     card.append(title, urlToImage, description, content, author);
 };
+
+async function createNewsCard(index) {
+    const card = document.createElement("a");
+    card.classList.add("card");
+    card.href = "getNews(index)";
+    main.appendChild(card);
+    const title = document.createElement("h1");
+    title.classList.add("title");
+    title.textContent = news[index].title;
+    const img = document.createElement("img");
+    img.classList.add("img");
+    img.src = news[index].urlToImage;
+    const author = document.createElement("p");
+    author.classList.add("text");
+    author.textContent = news[index].author;
+    card.append(title, img, author);
+    news.addEventListener('click', function () {
+        getNews(index);
+    })    
+};    
 
 function createHome() {
     for (let i = 0; i < news.length; i++) {
