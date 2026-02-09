@@ -1,0 +1,23 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.8",
+    "dotenv": "^17.2.4",
+    "newsapi": "^2.4.1",
+    "tailwindcss": "^4.1.18"
+  }
+}
