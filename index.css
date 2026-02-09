@@ -12,7 +12,6 @@ body {
     width: 100%;
 }
 
-
 .navLinks {
     padding: 5px 20px;
     font-size: 20px;
@@ -57,7 +56,6 @@ body {
 
 .img {
     width: 95%;
-    /* height: 75%; */
 }
 
 .text {
@@ -68,16 +66,16 @@ body {
 #form {
     padding-top: 10px;
     padding-bottom: 10px;
-    display: flex;
-    justify-self: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
     flex-direction: column;
-    background-color: #f5f5f5;
-    width: 500px;
 }
 
 .inputs, #send {
+    justify-self: center;
+    grid-column: 1;
     align-self: center;
-    width: 85%;
+    width: 80%;
     padding: 0.875rem;
     font-size: 1rem;
     border: 1.5px solid #000;

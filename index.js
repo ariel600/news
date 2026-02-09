@@ -4,59 +4,73 @@ const news = data
 
 const root = document.getElementById("root")
 const form = document.createElement("form")
+form.id = "form"
 const nav = document.createElement("nav")
+nav.id = "nav"
 const main = document.createElement("main")
+main.id = "main"
 root.append(nav, form, main)
 
 function addNews() {
+    main.innerHTML = ""
     const data = {}
-
     const author = document.createElement("input")
     author.type = "text"
     author.name = "text"
     author.placeholder = "Enter author"
     author.classList.add("inputs")
-
+    author.addEventListener('change', function (event) {
+        data.author = event.target.value;
+    });
     const title = document.createElement("input")
     title.type = "text"
     title.placeholder = "Enter title"
     title.classList.add("inputs")
-
+    title.addEventListener('change', function (event) {
+        data.title = event.target.value;
+    });
     const urlToImage = document.createElement("input")
     urlToImage.type = "text"
     urlToImage.placeholder = "Enter url To Image"
     urlToImage.classList.add("inputs")
-
+    urlToImage.addEventListener('change', function (event) {
+        data.urlToImage = event.target.value;
+    });
     const description = document.createElement("textarea")
     description.rows = 2
     description.placeholder = "Enter description"
     description.classList.add("inputs")
-
+    description.addEventListener('change', function (event) {
+        data.description = event.target.value;
+    });
     const content = document.createElement("textarea")
     content.rows = 8
     content.placeholder = "Enter content"
     content.classList.add("inputs")
-
+    content.addEventListener('change', function (event) {
+        data.content = event.target.value;
+    });
     const btn = document.createElement("button")
     btn.type = "submit"
     btn.textContent = "Send"
     btn.id = "send"
-
+    btn.addEventListener('click', function (event) {
+        news.unshift(data)
+        event.preventDefault()
+    });
     form.append(author, title, urlToImage, description, content, btn)
 }
 
 function createNav() {
     const home = document.createElement("button")
-    home.onclick =
-        home.textContent = "Home"
-    nav.appendChild(home)
+    home.onclick = "createHome()"
+    home.textContent = "Home"
     home.classList.add("navLinks")
-
     const news = document.createElement("button")
-    news.onclick = //addNews()
-        news.textContent = "Add News"
-    nav.appendChild(news)
+    news.onclick = "addNews()"
+    news.textContent = "Add News"
     news.classList.add("navLinks")
+    nav.append(home, news)
 }
 
 async function createNewsCard(index) {
@@ -64,30 +78,23 @@ async function createNewsCard(index) {
     card.classList.add("card")
     card.href = news[index].url
     main.appendChild(card)
-
     const title = document.createElement("h1")
     title.classList.add("title")
     title.textContent = news[index].title
-
     const img = document.createElement("img")
     img.classList.add("img")
     img.src = news[index].urlToImage
-
     const author = document.createElement("p")
     author.classList.add("text")
     author.textContent = news[index].author
-
-    card.appendChild(title, img, author)
+    card.append(title, img, author)
 }
 
 function createHome() {
-    createNav()
-    // for (let i = 0; i < news.length; i++) {
-    //     createNewsCard(i)
-    // }
+    for (let i = 0; i < news.length; i++) {
+        createNewsCard(i)
+    }
 }
 
-
-
-addNews()
+createNav()
 createHome()
